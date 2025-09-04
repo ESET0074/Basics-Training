@@ -1,2 +1,2 @@
 # Basics-Training
-Esyasoft Basic Trainging
+Esyasoft Basic Training
