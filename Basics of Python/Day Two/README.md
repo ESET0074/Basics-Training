@@ -1,0 +1,1 @@
+Python program to compare x and y co-ordinate of a point
