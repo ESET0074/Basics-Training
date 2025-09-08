@@ -1,0 +1,25 @@
+MSSQL queries for joining two tables and fetching data
+
+
+
+
+
+use DAYONE
+create table users(user_id int primary key, email varchar(20), names varchar(50))
+create table books(product_id int primary key, title varchar(50), price int)
+
+create table orders(order_no int primary key, user_id int, product_id int,
+foreign key(user_id) references users(user_id),
+foreign key(product_id) references books(product_id))
+insert into books values(104,'Marfa', 2000)
+
+select * from orders
+select * from users
+select * from books
+delete from orders
+insert into books values(105,'How to laugh',2001)
+insert into orders values(401,1,101),(402,2,102),(403,2,103),(404,3,104),(405,3,103),(406,4,102),(407,5,102),(408,5,105)
+
+select * from orders o
+inner join users u on o.user_id = u.user_id
+inner join books b on o.product_id = b.product_id where b.price in (select max(price) from books)
